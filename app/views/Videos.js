@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, TouchableWithoutFeedback, FlatList, View, Text } from 'react-native';
+import { apiKey } from '../../sensitiveInfo.js';
 
 export class Videos extends React.Component {
 
@@ -15,10 +16,9 @@ export class Videos extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyAKJb1v5tr17SmcC9Fd_qW_uc81HbYgE0g')
+    return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=${apiKey}`)
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(Array.from(responseJson.items));
       this.setState({
         listLoaded: true,
         videoList: Array.from(responseJson.items)
