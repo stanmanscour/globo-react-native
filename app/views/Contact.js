@@ -32,7 +32,7 @@ export class Contact extends React.Component{
   render(){
     return (
       <View style={styles.container}>
-          <Header message="press to login" />
+          <Header navigate={navigate} message="press to login" />
           <Text style={styles.heading}>Contact us</Text>
           <TextInput 
             style={styles.inputs}
